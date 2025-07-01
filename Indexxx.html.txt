@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Chikki 💖</title>
+  <style>
+    body {
+      margin:0; padding:0;
+      display:flex; justify-content:center; align-items:center;
+      height:100vh; 
+      background: linear-gradient(135deg, #ffc1cc, #ffb3c6);
+      font-family: 'Dancing Script', cursive;
+      overflow:hidden;
+      color:#333;
+      text-align:center;
+    }
+    #container { max-width:400px; }
+    img { width:60%; transition: transform 0.5s; }
+    button {
+      margin-top:20px;
+      padding:12px 24px;
+      font-size:18px;
+      background:#ff4d7a;
+      border:none;
+      border-radius:24px;
+      color:#fff;
+      cursor:pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #e8436f; }
+    #counter { font-size: 48px; margin-top:20px; }
+    #message {
+      opacity: 0;
+      margin-top:20px;
+      font-size:20px;
+      line-height:1.4;
+      transition: opacity 1s;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img id="teddy" src="https://i.imgur.com/8v2wreG.png" alt="Happy Teddy" />
+    <h1>I love you, Chikki 💖</h1>
+    <button id="openHeart">Open My Heart 💌</button>
+    <div id="counter"></div>
+    <p id="message">
+      I tried to count how much I love you...  
+      but even infinity wasn’t enough.  
+      You're not just in my heart — you *are* my heart.  
+      Every smile of yours is my favorite moment.  
+      I’ll love you today, tomorrow, and all the days my heart beats. ❤️
+    </p>
+  </div>
+
+  <script>
+    const btn = document.getElementById('openHeart');
+    const teddy = document.getElementById('teddy');
+    const counterDiv = document.getElementById('counter');
+    const message = document.getElementById('message');
+
+    btn.addEventListener('click', () => {
+      btn.disabled = true;
+      teddy.src = "https://i.imgur.com/U3ズB.png"; // sad teddy
+      teddy.style.transform = 'rotate(90deg) scale(0.8)';
+      
+      let count = 0;
+      const interval = setInterval(() => {
+        count++;
+        counterDiv.textContent = count;
+        if (count >= 4) {
+          clearInterval(interval);
+          counterDiv.style.display = 'none';
+          message.style.opacity = 1;
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
